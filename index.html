@@ -1,105 +1,816 @@
-Prospecção Inteligente com IA
-Prospect
-IA
-Sua equipe de prospecção trabalhando 24 horas por dia, 7 dias por semana, sem salário.
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prospect IA — Prospecção Automática com IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-dark: #9A7A30;
+    --black: #080808;
+    --black-2: #111111;
+    --black-3: #1A1A1A;
+    --white: #F5F0E8;
+    --gray: #888;
+  }
 
-Testar Grátis
-Como Funciona
-Scroll
-500+
-Contatos por dia
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-R$0,50
-Custo por disparo
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+  }
 
-24h
-Funcionando sempre
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 0%, #2a1f00 0%, var(--black) 60%);
+  }
 
-3x
-Mais conversões
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(201,168,76,0.03) 80px, rgba(201,168,76,0.03) 81px),
+      repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(201,168,76,0.03) 80px, rgba(201,168,76,0.03) 81px);
+    pointer-events: none;
+  }
 
-Processo
-Como a IA prospecta
-por você
-01
-Você define o alvo
-Informe o segmento, cidade e o que quer oferecer. A IA entende o contexto.
+  .badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    margin-bottom: 32px;
+    animation: fadeDown 0.8s ease both;
+  }
 
-02
-IA pesquisa no Google
-Busca automaticamente empresas, telefones e contatos do seu nicho.
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 10vw, 96px);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 12px;
+    animation: fadeDown 0.8s ease 0.1s both;
+  }
 
-03
-Manda WhatsApp
-Envia mensagens personalizadas para cada contato encontrado.
+  .hero h1 span {
+    color: var(--gold);
+    display: block;
+  }
 
-04
-Agente responde
-Quando o cliente responde, a IA continua a conversa e qualifica o lead.
+  .hero .subtitle {
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 300;
+    color: rgba(245,240,232,0.7);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+    animation: fadeDown 0.8s ease 0.2s both;
+  }
 
-Teste Agora
-Veja funcionando
-em tempo real
-Segmento
+  .cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeDown 0.8s ease 0.3s both;
+  }
 
-Selecione...
-Cidade
-Ex: São Paulo - SP
-Mensagem de Abordagem
-Ex: Olá! Vi que você tem um negócio em [cidade]. Temos uma solução que pode aumentar suas vendas em 40%...
-Simular Prospecção
-Investimento
-Planos para cada
-momento do negócio
-Starter
-R$197
-/mês
-500 disparos por mês
-1 número de WhatsApp
-Pesquisa no Google
-Mensagens personalizadas
-Suporte por email
-Começar
-Mais Popular
-Pro
-R$397
-/mês
-2.000 disparos por mês
-3 números de WhatsApp
-Agente IA com respostas
-Treinamento personalizado
-Relatório de conversões
-Suporte prioritário
-Começar
-Enterprise
-R$997
-/mês
-Disparos ilimitados
-10 números de WhatsApp
-Múltiplos agentes IA
-API dedicada
-Onboarding completo
-Gerente de conta
-Falar com Vendas
-Resultados Reais
-O que dizem nossos clientes
-Em 30 dias a IA prospectou mais de 800 restaurantes em SP. Fechamos 12 contratos novos.
+  .btn-gold {
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+  }
 
-Ricardo M.
-Distribuidor de Bebidas — São Paulo
-Antes gastava R$3.000/mês com vendedor para prospectar. Hoje pago R$397 e tenho o dobro de resultados.
+  .btn-gold:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+  }
 
-Fernanda S.
-Agência de Marketing — Curitiba
-A IA responde melhor que meu time de vendas. Qualifica o lead e já agenda a reunião sozinha.
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 17px 40px;
+    border: 1px solid var(--gold);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+  }
 
-Carlos A.
-Imobiliária — Rio de Janeiro
-Comece a prospectar
-hoje mesmo
-Sem cartão de crédito. Teste grátis por 7 dias.
+  .btn-outline:hover {
+    background: rgba(201,168,76,0.1);
+  }
 
-Quero Testar Grátis
-© 2026 Prospect IA — Todos os direitos reservados
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: float 2s ease-in-out infinite;
+  }
 
-Desenvolvido por Altevir Corrêa
+  .scroll-hint::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  /* STATS */
+  .stats {
+    background: var(--black-2);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .stat-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-item p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.5);
+  }
+
+  /* COMO FUNCIONA */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 20px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 60px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+  }
+
+  .step {
+    background: var(--black-2);
+    padding: 48px 36px;
+    position: relative;
+    transition: all 0.3s;
+    border-left: 2px solid transparent;
+  }
+
+  .step:hover {
+    border-left-color: var(--gold);
+    background: var(--black-3);
+  }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    color: rgba(201,168,76,0.15);
+    line-height: 1;
+    margin-bottom: 24px;
+    font-weight: 900;
+  }
+
+  .step h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+
+  .step p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.6);
+  }
+
+  /* DEMO */
+  .demo-section {
+    background: var(--black-2);
+    padding: 100px 20px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .demo-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .demo-box {
+    background: var(--black-3);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 48px;
+    margin-top: 48px;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    padding: 14px 18px;
+    outline: none;
+    transition: border-color 0.3s;
+    -webkit-appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group textarea {
+    height: 120px;
+    resize: vertical;
+  }
+
+  .form-group select option {
+    background: var(--black-3);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  .result-box {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 24px;
+    margin-top: 24px;
+    display: none;
+  }
+
+  .result-box.active { display: block; }
+
+  .result-box h4 {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .result-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    font-size: 14px;
+  }
+
+  .result-item:last-child { border-bottom: none; }
+
+  .result-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* PREÇOS */
+  .pricing {
+    padding: 100px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .plan {
+    background: var(--black-2);
+    padding: 48px 36px;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .plan.featured {
+    background: var(--black-3);
+    border: 1px solid var(--gold);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--black);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    white-space: nowrap;
+  }
+
+  .plan-name {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .plan-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .plan-price sup {
+    font-size: 24px;
+    vertical-align: top;
+    margin-top: 12px;
+  }
+
+  .plan-period {
+    font-size: 13px;
+    color: rgba(245,240,232,0.4);
+    margin-bottom: 36px;
+  }
+
+  .plan-features {
+    list-style: none;
+    margin-bottom: 36px;
+  }
+
+  .plan-features li {
+    font-size: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: rgba(245,240,232,0.7);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .plan-features li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    background: var(--black-2);
+    padding: 100px 20px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .testimonials-grid {
+    max-width: 1000px;
+    margin: 60px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+  }
+
+  .testimonial {
+    background: var(--black-3);
+    padding: 40px 36px;
+  }
+
+  .testimonial-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.8);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .testimonial-text::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: var(--gold);
+    line-height: 0;
+    vertical-align: -20px;
+    margin-right: 4px;
+  }
+
+  .testimonial-author {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .testimonial-role {
+    font-size: 12px;
+    color: rgba(245,240,232,0.4);
+    margin-top: 4px;
+  }
+
+  /* CTA FINAL */
+  .cta-final {
+    text-align: center;
+    padding: 120px 20px;
+    background: radial-gradient(ellipse at 50% 100%, #2a1f00 0%, var(--black) 60%);
+  }
+
+  .cta-final h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    margin-bottom: 24px;
+  }
+
+  .cta-final p {
+    font-size: 18px;
+    color: rgba(245,240,232,0.6);
+    margin-bottom: 48px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(245,240,232,0.3);
+    letter-spacing: 1px;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+  }
+
+  .loading-dots span {
+    display: inline-block;
+    animation: dot 1.4s infinite;
+    font-size: 24px;
+    color: var(--gold);
+  }
+  .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes dot {
+    0%, 80%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">Prospecção Inteligente com IA</div>
+  <h1>Prospect<span>IA</span></h1>
+  <p class="subtitle">Sua equipe de prospecção trabalhando 24 horas por dia, 7 dias por semana, sem salário.</p>
+  <div class="cta-group">
+    <a href="#demo" class="btn-gold">Testar Grátis</a>
+    <a href="#como-funciona" class="btn-outline">Como Funciona</a>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- STATS -->
+<div style="background: var(--black-2); border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2);">
+  <div class="stats">
+    <div class="stat-item">
+      <h3>500+</h3>
+      <p>Contatos por dia</p>
+    </div>
+    <div class="stat-item">
+      <h3>R$0,50</h3>
+      <p>Custo por disparo</p>
+    </div>
+    <div class="stat-item">
+      <h3>24h</h3>
+      <p>Funcionando sempre</p>
+    </div>
+    <div class="stat-item">
+      <h3>3x</h3>
+      <p>Mais conversões</p>
+    </div>
+  </div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <div class="section">
+    <div class="section-label">Processo</div>
+    <h2 class="section-title">Como a IA prospecta<br>por você</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Você define o alvo</h3>
+        <p>Informe o segmento, cidade e o que quer oferecer. A IA entende o contexto.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>IA pesquisa no Google</h3>
+        <p>Busca automaticamente empresas, telefones e contatos do seu nicho.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Manda WhatsApp</h3>
+        <p>Envia mensagens personalizadas para cada contato encontrado.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Agente responde</h3>
+        <p>Quando o cliente responde, a IA continua a conversa e qualifica o lead.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo-section" id="demo">
+  <div class="demo-container">
+    <div class="section-label" style="text-align:center">Teste Agora</div>
+    <h2 class="section-title" style="text-align:center; max-width:600px; margin:0 auto 0">
+      Veja funcionando<br>em tempo real
+    </h2>
+    <div class="demo-box">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Segmento</label>
+          <select id="segmento">
+            <option value="">Selecione...</option>
+            <option>Restaurantes</option>
+            <option>Clínicas de Estética</option>
+            <option>Academias</option>
+            <option>Imobiliárias</option>
+            <option>Lojas de Móveis</option>
+            <option>Salões de Beleza</option>
+            <option>Colchoarias</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Cidade</label>
+          <input type="text" id="cidade" placeholder="Ex: São Paulo - SP">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mensagem de Abordagem</label>
+        <textarea id="mensagem" placeholder="Ex: Olá! Vi que você tem um negócio em [cidade]. Temos uma solução que pode aumentar suas vendas em 40%..."></textarea>
+      </div>
+      <button class="btn-gold" onclick="simularProspeccao()" style="width:100%">
+        Simular Prospecção
+      </button>
+
+      <div class="result-box" id="resultado">
+        <h4>Contatos Encontrados</h4>
+        <div id="lista-contatos"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREÇOS -->
+<section class="pricing" id="precos">
+  <div class="section-label">Investimento</div>
+  <h2 class="section-title">Planos para cada<br>momento do negócio</h2>
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-name">Starter</div>
+      <div class="plan-price"><sup>R$</sup>197</div>
+      <div class="plan-period">/mês</div>
+      <ul class="plan-features">
+        <li>500 disparos por mês</li>
+        <li>1 número de WhatsApp</li>
+        <li>Pesquisa no Google</li>
+        <li>Mensagens personalizadas</li>
+        <li>Suporte por email</li>
+      </ul>
+      <a href="#" class="btn-outline" style="width:100%; text-align:center; display:block">Começar</a>
+    </div>
+    <div class="plan featured">
+      <div class="plan-badge">Mais Popular</div>
+      <div class="plan-name">Pro</div>
+      <div class="plan-price"><sup>R$</sup>397</div>
+      <div class="plan-period">/mês</div>
+      <ul class="plan-features">
+        <li>2.000 disparos por mês</li>
+        <li>3 números de WhatsApp</li>
+        <li>Agente IA com respostas</li>
+        <li>Treinamento personalizado</li>
+        <li>Relatório de conversões</li>
+        <li>Suporte prioritário</li>
+      </ul>
+      <a href="#" class="btn-gold" style="width:100%; text-align:center; display:block">Começar</a>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Enterprise</div>
+      <div class="plan-price"><sup>R$</sup>997</div>
+      <div class="plan-period">/mês</div>
+      <ul class="plan-features">
+        <li>Disparos ilimitados</li>
+        <li>10 números de WhatsApp</li>
+        <li>Múltiplos agentes IA</li>
+        <li>API dedicada</li>
+        <li>Onboarding completo</li>
+        <li>Gerente de conta</li>
+      </ul>
+      <a href="#" class="btn-outline" style="width:100%; text-align:center; display:block">Falar com Vendas</a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="testimonials">
+  <div style="max-width:1000px; margin:0 auto; padding: 0 20px;">
+    <div class="section-label" style="text-align:center">Resultados Reais</div>
+    <h2 class="section-title" style="text-align:center">O que dizem nossos clientes</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <p class="testimonial-text">Em 30 dias a IA prospectou mais de 800 restaurantes em SP. Fechamos 12 contratos novos.</p>
+      <div class="testimonial-author">Ricardo M.</div>
+      <div class="testimonial-role">Distribuidor de Bebidas — São Paulo</div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-text">Antes gastava R$3.000/mês com vendedor para prospectar. Hoje pago R$397 e tenho o dobro de resultados.</p>
+      <div class="testimonial-author">Fernanda S.</div>
+      <div class="testimonial-role">Agência de Marketing — Curitiba</div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-text">A IA responde melhor que meu time de vendas. Qualifica o lead e já agenda a reunião sozinha.</p>
+      <div class="testimonial-author">Carlos A.</div>
+      <div class="testimonial-role">Imobiliária — Rio de Janeiro</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Comece a prospectar<br>hoje mesmo</h2>
+  <p>Sem cartão de crédito. Teste grátis por 7 dias.</p>
+  <a href="#demo" class="btn-gold">Quero Testar Grátis</a>
+</section>
+
+<footer>
+  <p>© 2026 <span>Prospect IA</span> — Todos os direitos reservados</p>
+  <p style="margin-top: 16px; background: #000; display: inline-block; padding: 10px 24px; color: #fff; font-size: 12px; letter-spacing: 2px; font-weight: 600;">Desenvolvido por Altevir Corrêa</p>
+</footer>
+
+<script>
+function simularProspeccao() {
+  const segmento = document.getElementById('segmento').value;
+  const cidade = document.getElementById('cidade').value;
+  
+  if (!segmento || !cidade) {
+    alert('Preencha o segmento e a cidade para simular.');
+    return;
+  }
+
+  const btn = document.querySelector('.demo-box .btn-gold');
+  btn.innerHTML = '<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span> Pesquisando no Google';
+  btn.disabled = true;
+
+  const contatos = [
+    { nome: segmento + ' Central', fone: '(11) 9' + Math.floor(Math.random()*9000+1000) + '-' + Math.floor(Math.random()*9000+1000) },
+    { nome: segmento + ' ' + cidade.split('-')[0].trim(), fone: '(11) 9' + Math.floor(Math.random()*9000+1000) + '-' + Math.floor(Math.random()*9000+1000) },
+    { nome: segmento + ' Premium', fone: '(11) 9' + Math.floor(Math.random()*9000+1000) + '-' + Math.floor(Math.random()*9000+1000) },
+    { nome: segmento + ' Express', fone: '(11) 9' + Math.floor(Math.random()*9000+1000) + '-' + Math.floor(Math.random()*9000+1000) },
+    { nome: segmento + ' Master', fone: '(11) 9' + Math.floor(Math.random()*9000+1000) + '-' + Math.floor(Math.random()*9000+1000) },
+  ];
+
+  setTimeout(() => {
+    btn.innerHTML = '✦ Prospecção Simulada com Sucesso';
+    btn.disabled = false;
+
+    const lista = document.getElementById('lista-contatos');
+    lista.innerHTML = contatos.map(c => `
+      <div class="result-item">
+        <div class="result-dot"></div>
+        <div>
+          <div style="font-weight:600">${c.nome}</div>
+          <div style="color:rgba(245,240,232,0.5); font-size:12px">${c.fone} — WhatsApp enviado ✓</div>
+        </div>
+      </div>
+    `).join('');
+
+    document.getElementById('resultado').classList.add('active');
+    document.getElementById('resultado').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 2500);
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
